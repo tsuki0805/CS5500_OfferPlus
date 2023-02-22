@@ -14,5 +14,8 @@ public interface SummaryRepository extends MongoRepository<DailyActivitySummary,
     @Query("{category:'?0'}")
     List<DailyActivitySummary> findSummaryByCategory(String category);
 
-    public long count();
+    @Query(value="{date: '?0'}", delete = true)
+    List<DailyActivitySummary> deleteSummaryByDate(String date);
+
+    long count();
 }

@@ -14,5 +14,8 @@ public interface DetailRepository extends MongoRepository<DailyActivityDetail, S
     @Query("{category:'?0'}")
     List<DailyActivityDetail> findDetailByCategory(String category);
 
-    public long count();
+    @Query(value="{date: '?0'}", delete = true)
+    List<DailyActivityDetail> deleteDetailByDate(String date);
+
+    long count();
 }
