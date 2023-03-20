@@ -4,14 +4,18 @@ import com.project.model.DailyActivityDetail;
 import com.project.model.DailyActivitySummary;
 import com.project.repository.DetailRepository;
 import com.project.repository.SummaryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+//import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 
-import java.util.List;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
+//import java.util.List;
 
 @SpringBootApplication
 @EnableMongoRepositories
@@ -52,6 +56,51 @@ public class Application {
 			summaryRepository.deleteSummaryByDate("20220101").forEach(item -> System.out.println(item));
 			System.out.println("\n-----Final Activity Summary Count-----");
 			System.out.println("Count of daily activity summary: " + summaryRepository.count());
+			System.out.println("\n-----Make HTTP Requests-----");
+			makeHttpRequestForDailyActivityDetailByDate();
+			makeHttpRequestForDailyActivityDetailByCategory();
 		};
+	}
+
+	public void makeHttpRequestForDailyActivityDetailByDate() throws Exception {
+		String url = "http://localhost:8080/api/fetch/dailyActivityDetailByDate?date=20130209";
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+		con.setRequestMethod("GET");
+		int responseCode = con.getResponseCode();
+		if (responseCode == HttpURLConnection.HTTP_OK) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+			System.out.println(response);
+		} else {
+			System.out.println("HTTP request failed with response code: " + responseCode);
+		}
+	}
+
+	public void makeHttpRequestForDailyActivityDetailByCategory() throws Exception {
+		String url = "http://localhost:8080/api/fetch/dailyActivityDetailByCategory?category=walking";
+		URL obj = new URL(url);
+		HttpURLConnection con = (HttpURLConnection) obj.openConnection();
+		con.setRequestMethod("GET");
+		int responseCode = con.getResponseCode();
+		if (responseCode == HttpURLConnection.HTTP_OK) {
+			BufferedReader in = new BufferedReader(new InputStreamReader(
+					con.getInputStream()));
+			String inputLine;
+			StringBuffer response = new StringBuffer();
+			while ((inputLine = in.readLine()) != null) {
+				response.append(inputLine);
+			}
+			in.close();
+			System.out.println(response);
+		} else {
+			System.out.println("HTTP request failed with response code: " + responseCode);
+		}
 	}
 }
