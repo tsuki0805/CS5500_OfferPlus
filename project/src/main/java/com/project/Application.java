@@ -57,8 +57,8 @@ public class Application {
 			System.out.println("\n-----Final Activity Summary Count-----");
 			System.out.println("Count of daily activity summary: " + summaryRepository.count());
 			System.out.println("\n-----Make HTTP Requests-----");
-			makeHttpRequestForDailyActivityDetailByDate();
-			makeHttpRequestForDailyActivityDetailByCategory();
+//			makeHttpRequestForDailyActivityDetailByDate();
+//			makeHttpRequestForDailyActivityDetailByCategory();
 		};
 	}
 

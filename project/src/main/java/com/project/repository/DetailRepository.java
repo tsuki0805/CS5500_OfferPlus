@@ -2,6 +2,7 @@ package com.project.repository;
 
 import com.project.model.DailyActivityDetail;
 import com.project.model.DailyActivitySummary;
+import org.bson.types.ObjectId;
 import org.springframework.data.mongodb.repository.MongoRepository;
 import org.springframework.data.mongodb.repository.Query;
 
@@ -24,5 +25,9 @@ public interface DetailRepository extends MongoRepository<DailyActivityDetail, S
     @Query(value="{date: '?0', category: '?1'}", delete = true)
     List<DailyActivityDetail> deleteDetailByDateAndCategory(String date, String Category);
 
+    @Query("{id: '?0'}")
+    DailyActivityDetail findDetailById(ObjectId id);
+
     long count();
+
 }
