@@ -3,25 +3,31 @@ import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_URL;
 
 function DailyActivitySummary() {
-  const [date, setDate] = useState('');
+  const [date1, setDate1] = useState('');
+  const [date2, setDate2] = useState('');
+
   const [category, setCategory] = useState('');
   const [summaries, setSummary] = useState([]);
 
-  const handleDateChange = (event) => {
-    setDate(event.target.value);
+  const handleDate1Change = (event) => {
+    setDate1(event.target.value);
   };
 
   const handleCategoryChange = (event) => {
     setCategory(event.target.value);
   };
 
+  const handleDate2Change = (event) => {
+    setDate2(event.target.value);
+  };
+
   const handleFetchByDate = () => {
     axios
-    .get(`${API_URL}/getListOfSummaryByDate?date=${date}`)
+    .get(`${API_URL}/getListOfSummaryByDate?date=${date1}`)
     .then((response) => {
       const updatedSummary = response.data.map((summary) => ({
         ...summary,
-        date: date,
+        date: date1,
       }));
       setSummary(updatedSummary);
     })
@@ -31,12 +37,12 @@ function DailyActivitySummary() {
 
   const handleFetchByDateAndCat = () => {
     axios
-    .get(`${API_URL}/getDailyCaloriesSumByDateAndCat?date=${date}&category=${category}`)
+    .get(`${API_URL}/getDailyCaloriesSumByDateAndCat?date=${date2}&category=${category}`)
     .then((response) => {
       const sortedSummary = response.data.sort((a, b) => b.date.localeCompare(a.date));
       const limitedSummary = sortedSummary.slice(0, 20).map((summary) => ({
         ...summary,
-        date: date,
+        date: date2,
       }));
       setSummary(limitedSummary);
     })
@@ -52,8 +58,8 @@ function DailyActivitySummary() {
               <input
                   type="text"
                   className="form-control"
-                  value={date}
-                  onChange={handleDateChange}
+                  value={date1}
+                  onChange={handleDate1Change}
               />
             </div>
             <button className="btn btn-primary" onClick={handleFetchByDate}>
@@ -66,8 +72,8 @@ function DailyActivitySummary() {
               <input
                   type="text"
                   className="form-control"
-                  value={date}
-                  onChange={handleDateChange}
+                  value={date2}
+                  onChange={handleDate2Change}
               />
               <select
                   className="form-control"
@@ -86,6 +92,7 @@ function DailyActivitySummary() {
             </button>
           </div>
         </div>
+
         {summaries.length > 0 ? (
             <div className="row">
               <div className="col-md-12">
@@ -117,6 +124,7 @@ function DailyActivitySummary() {
             </div>
         ) : null}
       </div>
+
   );
 }
 
