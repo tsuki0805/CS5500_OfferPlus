@@ -1,8 +1,6 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import DailyActivityDetail from './DailyActivityDetailApi';
 import DailyActivityDetailComparison from './DailyActivityDetailComparison';
-import DailyActivitySummary from "./DailyActivitySummaryApi";
-import DailyActivitySummaryComparison from "./DailyActivitySummaryComparison";
 
 function App() {
     return (
@@ -22,16 +20,6 @@ function App() {
                                     Daily Activity Distance Comparison & CO2 Emission
                                 </Link>
                             </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/summaries">
-                                    Daily Activity Summaries
-                                </Link>
-                            </li>
-                            <li className="nav-item">
-                                <Link className="nav-link" to="/calories">
-                                    Daily Activity Summaries Calories Comparison
-                                </Link>
-                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -40,8 +28,6 @@ function App() {
                     <Routes>
                         <Route exact path="/details" element={<DailyActivityDetail />} />
                         <Route exact path="/comparison" element={<DailyActivityDetailComparison />} />
-                        <Route exact path="/summaries" element={<DailyActivitySummary />} />
-                        <Route exact path="/calories" element={<DailyActivitySummaryComparison />} />
                     </Routes>
                 </div>
             </div>
