@@ -16,22 +16,22 @@ function App() {
                         <ul className="navbar-nav">
                             <li className="nav-item">
                                 <Link className="nav-link" to="/details">
-                                    Daily Activity Detail
+                                    Get Your Daily Activities Details
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/comparison">
-                                    Daily Activity Distance Comparison & CO2 Emission
+                                    Distance Comparsion&Environmental Impact
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/edit-detail">
-                                    Edit Detail Records
+                                    Edit Detail Info
                                 </Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/summaries">
-                                    Daily Activity Summaries
+                                    Get your Daily Activity Summaries
                                 </Link>
                             </li>
                             <li className="nav-item">
@@ -41,7 +41,7 @@ function App() {
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link" to="/edit-summary">
-                                    Edit Summary Records
+                                    Edit Summary Info
                                 </Link>
                             </li>
                         </ul>
