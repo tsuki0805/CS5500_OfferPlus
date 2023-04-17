@@ -11,7 +11,7 @@ const DetailEdit = () => {
         <ul></ul>
         <DetailAdd />
         <ul></ul>
-        <DetailUpdate />
+        {/*<DetailUpdate />*/}
       </div>
   );
 };

@@ -2,17 +2,14 @@ import React, {useState} from 'react';
 import axios from 'axios';
 const API_URL = process.env.REACT_APP_API_URL;
 
-function DetailAdd() {
+function DailyActivitySummary() {
   const [date, setDate] = useState('');
   const [category, setCategory] = useState('');
   const [duration, setDuration] = useState('');
   const [distance, setDistance] = useState('');
   const [calories, setCalories] = useState('');
   const [steps, setSteps] = useState('');
-  const [lastUpdate, setLastUpdate] = useState('');
-  const [startTime, setStartTime] = useState('');
-  const [endTime, setEndTime] = useState('');
-  const [details, setDetails] = useState([]);
+  const [summaries, setSummary] = useState([]);
 
   const handleDateChange = (event) => {
     setDate(event.target.value);
@@ -32,58 +29,32 @@ function DetailAdd() {
   const handleStepsChange = (event) => {
     setSteps(event.target.value);
   };
-  const handleLastUpdateChange = (event) => {
-    setLastUpdate(event.target.value);
-  };
-  const handleStartTimeChange = (event) => {
-    setStartTime(event.target.value);
-  };
-  const handleEndTimeChange = (event) => {
-    setEndTime(event.target.value);
-  };
 
-
-  const handleAddDetail = () => {
-    const newDetail = generateNewDetail(date, duration,distance, calories, steps, lastUpdate,startTime, endTime, category);
-    console.log(newDetail)
+  const handleAddSummary = () => {
+    const newSummary = generateNewSummary(date, duration,distance, calories, steps, category);
+    console.log(newSummary)
     axios
-    .post(`${API_URL}/add/dailyActivityDetail`, newDetail)
+    .post(`${API_URL}/add/dailyActivitySummary`, newSummary)
     .then((response) => {
-      // Assuming the API returns the new object with an ID assigned, add it to the existing list
-      setDetails([...details, response.data]);
+      setSummary([...summaries, response.data]);
     })
+    .then(data => console.log(data))
     .catch((error) => console.log("Error adding object"));
   };
 
-  const generateNewDetail = (date, duration,distance, calories, steps, lastUpdate,startTime, endTime, category) => {
+  const generateNewSummary = (date, duration,distance, calories, steps, category) => {
     const newDetail = {
       date: date,
       duration: duration,
       distance: distance,
       calories: calories,
       steps: steps,
-      lastUpdate: lastUpdate,
-      startTime: startTime,
-      endTime: endTime,
       category: category
     };
     return newDetail;
   };
 
-  const convertToReadableTime = (timestamp) => {
-    const year = timestamp.slice(0, 4);
-    const month = timestamp.slice(4, 6);
-    const day = timestamp.slice(6, 8);
-    const hours = timestamp.slice(9, 11);
-    const minutes = timestamp.slice(11, 13);
-    const seconds = timestamp.slice(13, 15);
-    const timezoneOffset = timestamp.slice(15);
-    const date = new Date(`${year}-${month}-${day}T${hours}:${minutes}:${seconds}${timezoneOffset}`);
-    return date.toLocaleString();
-  };
-
   return(
-
       <div className="container">
 
         <ul></ul>
@@ -99,7 +70,7 @@ function DetailAdd() {
                   className="form-control"
                   value={date}
                   onChange={handleDateChange}
-             />
+              />
               <input
                   placeholder="Duration"
                   type="number"
@@ -128,47 +99,28 @@ function DetailAdd() {
                   value={steps}
                   onChange={handleStepsChange}
               />
-              <input
-                  placeholder="LastUpdate"
-                  type="text"
-                  className="form-control"
-                  value={lastUpdate}
-                  onChange={handleLastUpdateChange}
-              />
-              <input
-                  placeholder="StartTime"
-                  type="text"
-                  className="form-control"
-                  value={startTime}
-                  onChange={handleStartTimeChange}
-              />
-              <input
-                  placeholder="EndTime"
-                  type="text"
-                  className="form-control"
-                  value={endTime}
-                  onChange={handleEndTimeChange}
-              />
               <select
                   placeholder="Category"
                   type={category}
                   className="form-control"
                   onChange={handleCategoryChange}
-                  >
-              <option value="">Category</option>
-              <option value="walking">Walking</option>
-              <option value="running">Running</option>
-              <option value="cycling">Cycling</option>
-              <option value="transport">Transport</option>
-            </select>
+              >
+                <option value="">Category</option>
+                <option value="walking">Walking</option>
+                <option value="running">Running</option>
+                <option value="cycling">Cycling</option>
+                <option value="transport">Transport</option>
+              </select>
             </form>
           </div>
-          <button className="btn btn-primary" onClick={handleAddDetail}>
-            Add this Detail Record
+          <button className="btn btn-primary" onClick={handleAddSummary}>
+            Add this Summary Record
           </button>
         </div>
-        </div>
+      </div>
   )
+
+
 }
 
-export default DetailAdd;
+export default DailyActivitySummary;

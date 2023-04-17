@@ -1,8 +1,10 @@
 import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
 import DailyActivityDetail from './DailyActivityDetailApi';
 import DailyActivityDetailComparison from './DailyActivityDetailComparison';
-import DetailAdd from './DetailAdd';
 import DetailEdit from './DetailEdit';
+import DailyActivitySummary from "./DailyActivitySummaryApi";
+import DailyActivitySummaryComparison from "./DailyActivitySummaryComparison";
+import SummaryEdit from './SummaryEdit';
 
 function App() {
     return (
@@ -28,6 +30,16 @@ function App() {
                                 </Link>
                             </li>
                             <li className="nav-item">
+                                <Link className="nav-link" to="/summaries">
+                                    Daily Activity Summaries
+                                </Link>
+                            </li>
+                            <li className="nav-item">
+                                <Link className="nav-link" to="/calories">
+                                    Daily Activity Summaries Calories Comparison
+                                </Link>
+                            </li>
+                            <li className="nav-item">
                                 <Link className="nav-link" to="/edit-summary">
                                     Edit Summary Records
                                 </Link>
@@ -41,7 +53,9 @@ function App() {
                         <Route exact path="/details" element={<DailyActivityDetail />} />
                         <Route exact path="/comparison" element={<DailyActivityDetailComparison />} />
                         <Route exact path="/edit-detail" element={<DetailEdit />} />
-                        <Route exact path="/edit-summary" element={<DailyActivityDetail />} />
+                        <Route exact path="/edit-summary" element={<SummaryEdit />} />
+                        <Route exact path="/summaries" element={<DailyActivitySummary />} />
+                        <Route exact path="/calories" element={<DailyActivitySummaryComparison />} />
                     </Routes>
                 </div>
             </div>

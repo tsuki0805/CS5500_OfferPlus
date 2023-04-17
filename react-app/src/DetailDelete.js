@@ -47,7 +47,6 @@ function DetailDelete() {
   };
 
   return(
-
       <div className="container">
         <div className="col-md-6">
           <div className="form-group">
