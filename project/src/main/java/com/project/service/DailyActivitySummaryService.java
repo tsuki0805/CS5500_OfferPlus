@@ -52,6 +52,18 @@ public class DailyActivitySummaryService {
     return listOfDailyActSum;
   }
 
+  /**
+   * @param activityDate date input
+   * @param category category input
+   * @return the total consumption of calories in a specific date and specific category
+   */
+  public List<DailyActivitySummary>  getCalByCat(String category){
+    List<DailyActivitySummary> listOfDailyActSum;
+    listOfDailyActSum = summaryRepository.findSummaryByCategory(category);
+
+    return listOfDailyActSum;
+  }
+
 
 
 
