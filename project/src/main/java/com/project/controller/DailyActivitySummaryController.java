@@ -42,6 +42,21 @@ public class DailyActivitySummaryController {
     }
   }
 
+  //Get list of DailyActivitySummary by a specific category
+  @GetMapping("/getListOfSummaryByCategory")
+  public ResponseEntity<List<DailyActivitySummary>> fetchListOfSummaryByCat(@RequestParam("category") String category){
+    try {
+      List<DailyActivitySummary> listSummary = dailyActivitySummaryService.getCalByCat(category);
+      if (listSummary==null) {
+        return ResponseEntity.notFound().build();
+      } else {
+        return ResponseEntity.ok(listSummary);
+      }
+    } catch (IllegalArgumentException e) {
+      return ResponseEntity.badRequest().body(Collections.emptyList());
+    }
+  }
+
   //Get total daily calories by a specific date and category
   @GetMapping("/getDailyCaloriesSumByDateAndCat")
   public ResponseEntity<List<DailyActivitySummary>> fetchDailyCaloriesSumByDateAndCat(@RequestParam("date") String date, @RequestParam("category") String category){
