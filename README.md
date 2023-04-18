@@ -9,6 +9,9 @@ During the development process, the following features were implemented:
 - Update or delete daily activities detail data
 - Update or delete daily activities summary data
 
+## Code/Test Metrics
+The total number of lines of code in the project is ~1900, with a test coverage of 100% for class, 68.3% for method.
+
 ## Getting Started
 ### Database Setup
 The MongoDB database is already setup online using MongoDB Atlas with MongoDB access information stored in application.properties (project/src/main/resources/application.properties). You do not have to do any additional setups.
