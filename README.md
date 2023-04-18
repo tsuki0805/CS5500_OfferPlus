@@ -1,15 +1,40 @@
-# 5500 Fit
-This application helps you track your daily activity details. It is built with Java/Springboot/MongoDB.
+# 5500Fit!
+5500Fit! is a web application built with Java, Springboot, MongoDB, and React.js that helps users track their daily activities.
 
-## Database Setup
-The MongoDB database is already setup online using MongoDB Atlas with MongoDB access information stored in [application.properties](project/src/main/resources/application.properties). You do not have to do any additional setups.
+## Features Delivered
+During the development process, the following features were implemented:
+- Get the user’s daily activities detail by date and category
+- Compare user’s activities distance on a specific day and get its environmental impact
+- Get the user’s daily activities summary by date and category
+- Update or delete daily activities detail data
+- Update or delete daily activities summary data
 
+## Code/Test Metrics
+The total number of lines of code in the project is ~1900, with a test coverage of 100% for class, 68.3% for method.
 
-## Run Application
-To run the application locally, follow these steps:
+## Getting Started
+### Database Setup
+The MongoDB database is already setup online using MongoDB Atlas with MongoDB access information stored in application.properties (project/src/main/resources/application.properties). You do not have to do any additional setups.
 
-1. Make sure your JDK version is set as 15
-2. Run this command in terminal `mvn spring-boot:run`  
+### Prerequisites
+- JDK version 15
+- Maven installed
 
-## API Test
-To test the API endpoints, you can use Postman or any other tool of your choice. As for detailed API endpoints to test, please check this [API Document](https://docs.google.com/document/d/1VFA4bvL453Qteau0EMPNv3REVsG9eINMTQ-SyOcWflU/edit?usp=sharing).
+### Installing
+To install the project, follow these steps:
+
+- Clone the repository using the command `git clone https://github.com/tsuki0805/CS5500_OfferPlus.git`
+- Navigate to the project directory `cd project`
+- Build the project using `mvn clean install`
+
+### Running
+To run the project, follow these steps:
+
+- Navigate to the project directory `cd project`
+- Run the application by running `Application.java` or using `mvn spring-boot:run`
+- Navigate to the React app directory `cd react-app`
+- Run `npm install` to install the dependencies
+- Run `npm start` to start the React app
+
+## Other Documents
+[API Document](https://docs.google.com/document/d/1VFA4bvL453Qteau0EMPNv3REVsG9eINMTQ-SyOcWflU/edit?usp=sharing).
