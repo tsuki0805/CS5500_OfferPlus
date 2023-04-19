@@ -37,6 +37,7 @@ To run the project, follow these steps:
 - Run `npm start` to start the React app
 
 ## Known Problems
+The deploy of the project https://five500-offer-plus2.onrender.com sometimes need some patience.
 
 ## Other Documents
 [API Document](https://docs.google.com/document/d/1VFA4bvL453Qteau0EMPNv3REVsG9eINMTQ-SyOcWflU/edit?usp=sharing).
