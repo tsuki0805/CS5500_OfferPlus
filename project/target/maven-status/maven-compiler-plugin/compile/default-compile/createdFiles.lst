@@ -1,0 +1,11 @@
+com/project/model/DailyActivityDetail.class
+com/project/Application$CorsConfiguration.class
+com/project/Application$CorsConfiguration$1.class
+com/project/controller/DailyActivitySummaryController.class
+com/project/service/DailyActivityDetailService.class
+com/project/controller/DailyActivityDetailController.class
+com/project/model/DailyActivitySummary.class
+com/project/repository/DetailRepository.class
+com/project/repository/SummaryRepository.class
+com/project/service/DailyActivitySummaryService.class
+com/project/Application.class
