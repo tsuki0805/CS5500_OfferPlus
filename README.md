@@ -14,7 +14,7 @@ The total number of lines of code in the project is ~1900, with a test coverage 
 
 ## Getting Started
 ### Database Setup
-The MongoDB database is already setup online using MongoDB Atlas with MongoDB access information stored in application.properties (project/src/main/resources/application.properties). You do not have to do any additional setups.
+The MongoDB database is already setup online using MongoDB Atlas with MongoDB access information stored in `application.properties` (project/src/main/resources/application.properties). You do not have to do any additional setups.
 
 ### Prerequisites
 - JDK version 15
