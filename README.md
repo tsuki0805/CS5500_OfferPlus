@@ -36,5 +36,7 @@ To run the project, follow these steps:
 - Run `npm install` to install the dependencies
 - Run `npm start` to start the React app
 
+## Known Problems
+
 ## Other Documents
 [API Document](https://docs.google.com/document/d/1VFA4bvL453Qteau0EMPNv3REVsG9eINMTQ-SyOcWflU/edit?usp=sharing).
