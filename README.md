@@ -31,7 +31,7 @@ To install the project, follow these steps:
 To run the project, follow these steps:
 
 - Navigate to the project directory `cd project`
-- Run the application by running `Application.java` or using `mvn spring-boot:run`
+- Run the application by running `Application.java` (project/src/main/java/com/project/Application.java) or using `mvn spring-boot:run`
 - Navigate to the React app directory `cd react-app`
 - Run `npm install` to install the dependencies
 - Run `npm start` to start the React app
