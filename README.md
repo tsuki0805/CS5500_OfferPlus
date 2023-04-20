@@ -4,10 +4,11 @@
 ## Features Delivered
 During the development process, the following features were implemented:
 - Get the user’s daily activities detail by date and category
-- Compare user’s activities distance on a specific day and get its environmental impact
 - Get the user’s daily activities summary by date and category
-- Update or delete daily activities detail data
-- Update or delete daily activities summary data
+- Compare user’s activities distance on a specific day and get its environmental impact
+- Get user's daily physical activity calorie consumption on a specific day
+- Add or delete daily activities detail data
+- Add or delete daily activities summary data
 
 ## Code/Test Metrics
 The total number of lines of code in the project is ~1900, with a test coverage of 100% for class, 68.3% for method.
